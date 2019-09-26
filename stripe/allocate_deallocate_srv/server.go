@@ -44,6 +44,7 @@ func (s Services) Allocate(serviceName string) string {
  * O(1) deletion
  */
 func (s Services) Deallocate(strToParse string) {
+	// match[0] will hold []string{<ServiceName><ID>, <serviceName>, <ID>}
 	match := machineRegex.FindAllStringSubmatch(strToParse, -1)
 	svc := match[0][1]
 	resourceID, _ := strconv.Atoi(match[0][2])
