@@ -15,7 +15,7 @@ type Services map[string]Resources
 type Resources map[int]bool
 
 /*
- * getFreeResourceID returns the ID of the next zero-value boolean entry in a resource map
+ * get the ID of the next zero-value boolean entry
  */
 func getFreeResourceID(resources map[int]bool) int {
 	for i := 0; i < len(resources); i++ {
@@ -34,7 +34,6 @@ func (s Services) Allocate(serviceName string) string {
 	if _, ok := s[serviceName]; !ok {
 		s[serviceName] = make(map[int]bool)
 	}
-	// allocate the next resource on the service
 	resources := s[serviceName]
 	id := getFreeResourceID(resources)
 	resources[id] = true
@@ -46,10 +45,6 @@ func (s Services) Allocate(serviceName string) string {
  */
 func (s Services) Deallocate(strToParse string) {
 	match := machineRegex.FindAllStringSubmatch(strToParse, -1)
-	// we expect either a machine name... or
-	//if len(match) != 1 || len(match[0]) != 3 {
-	//	log.Fatal("Unexpected machine name", strToParse, match)
-	//}
 	svc := match[0][1]
 	resourceID, _ := strconv.Atoi(match[0][2])
 	delete(s[svc], resourceID)
