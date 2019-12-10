@@ -1,5 +1,10 @@
 // https://leetcode.com/problems/search-a-2d-matrix-ii/ (medium)
 
+/*
+Time complexity : O(m*n) - Worst case: visit every entry in the matrix
+Space complexity : O(m*n) - Worst case: visit every entry in the matrix
+*/
+
 class Solution {
 
     public boolean searchMatrix(int[][] matrix, int target) {
@@ -7,11 +12,9 @@ class Solution {
             return false;
         }
         for (int ci = 0; ci < matrix[0].length; ci++) {
-            if (matrix[matrix.length-1][ci] >= target) {
-                for (int r = matrix.length-1; r >= 0; r--) {
-                    if (matrix[r][ci] == target) {
-                        return true;
-                    }
+            for (int r = matrix.length-1; r >= 0; r--) {
+                if (matrix[r][ci] == target) {
+                    return true;
                 }
             }
         }
