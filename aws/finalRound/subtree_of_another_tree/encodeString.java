@@ -9,8 +9,8 @@ Space complexity : O(max(m,n)) - The depth of the recursion tree can go upto n f
 class Solution {
     public boolean isSubtree(TreeNode s, TreeNode t) {
         String subTree = encodeTree(s);
-        String cmdTree = encodeTree(t);
-        return subTree.indexOf(cmdTree) > -1;
+        String cmpTree = encodeTree(t);
+        return subTree.indexOf(cmpTree) > -1;
     } 
 
     // encodeTree encodes a tree into a nested string
