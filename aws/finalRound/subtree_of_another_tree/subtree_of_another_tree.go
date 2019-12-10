@@ -10,18 +10,15 @@ type TreeNode struct {
 }
 
 func isSubtree(s *TreeNode, t *TreeNode) bool {
-	if s == nil {
-		return t == nil
+	if s == nil || t == nil {
+		return s == t
 	}
 	return areTheSame(s, t) || isSubtree(s.Left, t) || isSubtree(s.Right, t)
 }
 
 func areTheSame(s, t *TreeNode) bool {
-	if s == nil {
-		return t == nil
-	}
-	if t == nil {
-		return false
+	if s == nil || t == nil {
+		return s == t
 	}
 	return s.Val == t.Val && areTheSame(s.Left, t.Left) && areTheSame(s.Right, t.Right)
 }
