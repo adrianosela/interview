@@ -1,5 +1,10 @@
 // https://leetcode.com/problems/subtree-of-another-tree/ (easy)
 
+/*
+Time complexity : O(m*n) - In worst case (skewed tree)
+Space complexity : O(n) - Recursion depth can go up to n where n = nodes in s
+*/
+
 package main
 
 // TreeNode is a binary tree node.
