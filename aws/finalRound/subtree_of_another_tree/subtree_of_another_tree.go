@@ -9,7 +9,7 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func isSubtree(s *TreeNode, t *TreeNode) bool {
+func isSubtree(s, t *TreeNode) bool {
 	if s == nil || t == nil {
 		return s == t
 	}
