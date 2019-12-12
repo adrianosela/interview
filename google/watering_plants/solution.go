@@ -33,11 +33,36 @@ package main
 import "fmt"
 
 func main() {
-	run1 := refillsNeeded([]int{2, 4, 5, 1, 2}, 5, 7)
+	run1 := refillsNeeded([]int{2, 4, 5, 1, 1, 2}, 5, 7)
 	fmt.Printf("refillsNeeded([]int{2, 4, 5, 1, 2}, 5, 7) - expected 3, got %d\n", run1)
 }
 
 func refillsNeeded(plants []int, capacity1, capacity2 int) int {
-	// TODO
-	return 0
+	w1, w2, refs := 0, 0, 0
+
+	// we only iterate through the first half
+	// our friend looks at the other half
+	for you := 0; you < len(plants)/2; you++ {
+		if w1 < plants[you] {
+			w1 = capacity1
+			refs++
+		}
+		if w2 < plants[len(plants)-you-1] {
+			w2 = capacity2
+			refs++
+		}
+		w1 -= plants[you]
+		w2 -=plants[len(plants)-you-1]
+	}
+
+	// if there is an odd number of plants
+	// you and your friend meet in the middle
+	if len(plants) % 2 != 0 {
+		if w1 + w2 >= plants[len(plants)/2+1] {
+			return refs
+		}
+		return refs+1
+	}
+
+	return refs
 }
