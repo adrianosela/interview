@@ -23,6 +23,10 @@ package main
 
 - You must have the full amount of water required to water
   a plant to begin watering it, otherwise you must refill.
+
+- Write a function refillsNeeded(p []int, c1 int, c2 int)
+  that returns the amount of times you and your friend will
+  have to refill your water bottles
 --------------------------------------------------------------
 */
 
