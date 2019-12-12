@@ -27,21 +27,20 @@ func main() {
 }
 
 func minDominoRotations(A, B []int) int {
-	if numA, ok := swapOnTarget(A[0], A, B); ok {
+	if numA := swapOnTarget(A[0], A, B); numA != -1 {
 		return numA
 	}
-
-	if numB, ok := swapOnTarget(B[0], A, B); ok {
+	if numB := swapOnTarget(B[0], B, A); numB != -1 {
 		return numB
 	}
 	return -1
 }
 
-func swapOnTarget(target int, A, B []int) (int, bool) {
+func swapOnTarget(target int, A, B []int) int {
 	a, b := 0, 0
 	for i := 0; i < len(A); i++ {
 		if A[i] != target && B[i] != target {
-			return -1, false
+			return -1
 		}
 
 		if B[i] == target && A[i] != target {
@@ -52,7 +51,7 @@ func swapOnTarget(target int, A, B []int) (int, bool) {
 			b++
 		}
 	}
-	return min(a, b), true
+	return min(a, b)
 }
 
 func min(x, y int) int {
