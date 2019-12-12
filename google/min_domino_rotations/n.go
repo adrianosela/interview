@@ -62,7 +62,7 @@ func minDominoRotations(A []int, B []int) int {
 		if top == target2 && bottom != target2 {
 			t2BottomRot++
 		}
-		
+
 		// bottom rotations for each target
 		if bottom == target1 && top != target1 {
 			t1TopRot++

@@ -58,16 +58,16 @@ func refillsNeeded(plants []int, capacity1, capacity2 int) int {
 			refs++
 		}
 		w1 -= plants[you]
-		w2 -=plants[len(plants)-you-1]
+		w2 -= plants[len(plants)-you-1]
 	}
 
 	// if there is an odd number of plants
 	// you and your friend meet in the middle
-	if len(plants) % 2 != 0 {
-		if w1 + w2 >= plants[len(plants)/2+1] {
+	if len(plants)%2 != 0 {
+		if w1+w2 >= plants[len(plants)/2+1] {
 			return refs
 		}
-		return refs+1
+		return refs + 1
 	}
 
 	return refs
