@@ -39,7 +39,8 @@ func main() {
 	run2 := refillsNeeded([]int{2, 4, 5, 1, 1, 2}, 11, 50)
 	fmt.Printf("refillsNeeded([]int{2, 4, 5, 1, 2}, 11, 50) - expected 2, got %d\n", run2)
 
-	//run3 := refillsNeeded([]int{2, 4, 5, 1, 1, 2}, 5, 7)
+	run3 := refillsNeeded([]int{2, 2, 2, 6, 2, 2, 2}, 6, 6)
+	fmt.Printf("refillsNeeded([]int{2, 2, 2, 1, 2, 2, 2}, 6, 6) - expected 3, got %d\n", run3)
 }
 
 func refillsNeeded(plants []int, capacity1, capacity2 int) int {
