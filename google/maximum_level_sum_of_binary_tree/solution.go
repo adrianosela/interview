@@ -1,6 +1,9 @@
 package main
 
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
 type TreeNode struct {
 	Val   int
@@ -8,9 +11,18 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+func main() {
+	tn := &TreeNode{
+		Val:   10,
+		Left:  &TreeNode{Val: 5, Left: &TreeNode{Val: 3}, Right: &TreeNode{Val: 6}},
+		Right: &TreeNode{Val: 15, Left: &TreeNode{Val: 12}, Right: &TreeNode{Val: 18}},
+	}
+	fmt.Printf("expected 3, got %d\n", MaxLevelSum(tn))
+}
+
 // MaxLevelSum returns the maximum sum
 // at a single depth of the tree
-func maxLevelSum(tn *TreeNode) int {
+func MaxLevelSum(tn *TreeNode) int {
 	// need a queue to do bfs / level-order
 	q := []*TreeNode{tn}
 
